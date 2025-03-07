@@ -22,9 +22,9 @@ export default function About() {
             </p>
 
             <p>
-              This website is created using Next.js and
+              This website is created using Next.js and {}
               <a
-                href="https://go.clerk.com/fgJHKlt"
+                href="https://clerk.com"
                 target="_blank"
                 className="text-teal-500 hover:underline"
               >
