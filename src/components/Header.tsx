@@ -18,7 +18,7 @@ export default function Header() {
           <Link href="/">Home</Link>
         </li>
         <li className="hidden sm:block">
-          <Link href="/">About</Link>
+          <Link href="/about">About</Link>
         </li>
       </ul>
       <div className="flex items-center gap-4">

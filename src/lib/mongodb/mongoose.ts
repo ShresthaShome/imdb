@@ -13,7 +13,7 @@ export const connect = async () => {
     await mongoose.connect(
       process.env.MONGODB_URI as string,
       {
-        dbName: "next-estate",
+        dbName: "imdb-clerk",
         useNewUrlParser: true,
         useUnifiedTopology: true,
       } as any // eslint-disable-line @typescript-eslint/no-explicit-any
