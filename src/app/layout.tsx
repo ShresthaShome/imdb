@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import { ClerkProvider } from "@clerk/nextjs";
 import Navbar from "@/components/Navbar";
+import SearchBox from "@/components/SearchBox";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <ThemeCom>
             <Header />
             <Navbar />
+            <SearchBox />
             {children}
           </ThemeCom>
         </body>

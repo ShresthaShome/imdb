@@ -33,8 +33,10 @@ export default function Card({ result }: { result: cardType }) {
           </h2>
           <p className="flex items-center text-xs">
             {result.release_date || result.first_air_date}
-            <FiThumbsUp className="h-5 mr-1 ml-3 text-yellow-700" />
-            {result.vote_count}
+            {result.vote_count && (
+              <FiThumbsUp className="h-5 mr-1 ml-3 text-yellow-700" />
+            )}
+            {result.vote_count || ""}
           </p>
         </div>
       </Link>
