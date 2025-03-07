@@ -16,7 +16,7 @@ export const connect = async () => {
         dbName: "next-estate",
         useNewUrlParser: true,
         useUnifiedTopology: true,
-      } as any
+      } as any // eslint-disable-line @typescript-eslint/no-explicit-any
     );
     initialised = true;
     console.log("MongoDB connected");

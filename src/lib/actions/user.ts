@@ -1,6 +1,5 @@
 import { connect } from "@/lib/mongodb/mongoose";
 import User from "@/lib/models/user.model";
-import { error } from "console";
 
 export const createOrUpdateUser = async (
   id: string,
