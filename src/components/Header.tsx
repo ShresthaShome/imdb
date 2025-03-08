@@ -4,8 +4,8 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export default function Header() {
   return (
-    <div className="flex justify-between items-center p-3 mx-auto">
-      <ul className="flex gap-4">
+    <div className="flex justify-between items-center p-3 mx-auto ">
+      <ul className="flex gap-6 items-center">
         <li>
           <SignedIn>
             <UserButton />
@@ -24,7 +24,7 @@ export default function Header() {
           <Link href="/about">About</Link>
         </li>
       </ul>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-10">
         <DarkModeSwitch />
         <Link href={"/"} className="flex gap-1 items-center">
           <span className="text-2xl font-bold bg-amber-500 py-1 px-2 rounded-lg">

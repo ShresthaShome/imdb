@@ -1,3 +1,9 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About",
+};
+
 export default function About() {
   return (
     <div className="min-h-screen flex items-center justify-center">
@@ -41,6 +47,13 @@ export default function About() {
             </p>
           </div>
         </div>
+        <footer className="mt-12">
+          Copyright &copy;2025 {}
+          <b>
+            <i>Ullas Shome</i>
+          </b>
+          . All rights Reserved.
+        </footer>
       </div>
     </div>
   );

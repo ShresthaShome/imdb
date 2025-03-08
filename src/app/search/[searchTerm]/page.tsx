@@ -1,5 +1,16 @@
 import Results from "@/components/Results";
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ searchTerm: string }>;
+}) {
+  const { searchTerm } = await params;
+  return {
+    title: searchTerm,
+  };
+}
+
 export default async function SearchPage({
   params,
 }: {

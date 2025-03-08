@@ -2,7 +2,7 @@ import User from "@/lib/models/user.model";
 import { connect } from "@/lib/mongodb/mongoose";
 import { currentUser } from "@clerk/nextjs/server";
 
-export const PUT = async (req: Request) => {
+export const PUT = async () => {
   const user = await currentUser();
 
   try {

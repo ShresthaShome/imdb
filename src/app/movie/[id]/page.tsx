@@ -1,6 +1,26 @@
 import AddToFav from "@/components/AddToFav";
-import { CardType } from "@/types";
+import { type CardType } from "@/types";
 import Link from "next/link";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id: movieId } = await params;
+
+  const res = await fetch(
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
+  );
+
+  const movie: CardType = await res.json();
+
+  if (!res.ok) return;
+
+  return {
+    title: movie.title || movie.name,
+  };
+}
 
 export default async function MoviePage({
   params,
