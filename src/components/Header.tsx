@@ -5,7 +5,7 @@ import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 export default function Header() {
   return (
     <div className="flex justify-between items-center p-3 mx-auto ">
-      <ul className="flex gap-6 items-center">
+      <ul className="flex gap-6 pt-2">
         <li>
           <SignedIn>
             <UserButton />

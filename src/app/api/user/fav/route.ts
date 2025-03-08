@@ -12,7 +12,7 @@ export const PUT = async (req: Request) => {
     const data = (await req.json()) as Movie;
 
     if (!user) {
-      return { status: 401, body: "Unauthorized" };
+      return new Response("Unauthorized", { status: 401 });
     }
 
     const existingUser = (await User.findById(
