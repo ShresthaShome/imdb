@@ -1,16 +1,9 @@
-export default function AddToFav() {
-  return (
-    <div>
-      <h1>AddToFav</h1>
-    </div>
-  );
-}
-
-/*
 "use client";
+
 import { useState, useEffect } from "react";
 import { useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { type Movie } from "@/types";
 
 export default function AddToFav({
   movieId,
@@ -19,29 +12,31 @@ export default function AddToFav({
   overview,
   releaseDate,
   voteCount,
-}) {
+}: Movie) {
   const [isFav, setIsFav] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const { isSignedIn, user, isLoaded } = useUser();
   const router = useRouter();
 
   useEffect(() => {
     setIsLoading(true);
     if (isLoaded && isSignedIn && user) {
-      setIsFav(user.publicMetadata?.favs?.includes(movieId));
+      setIsFav(
+        ((user.publicMetadata?.favs as string[]) ?? [])?.includes(movieId)
+      );
       setIsLoading(false);
-    } else {
-      setIsLoading(false);
-    }
+    } else setIsLoading(false);
   }, [movieId, isLoaded, isSignedIn, user]);
 
   const handleFavClick = async () => {
     setIsLoading(true);
+
     if (!isSignedIn) {
       setIsLoading(false);
       router.push("/sign-in");
       return;
     }
+
     try {
       const res = await fetch("/api/user/fav", {
         method: "PUT",
@@ -74,8 +69,10 @@ export default function AddToFav({
     <div>
       <button
         onClick={handleFavClick}
-        className={`p-2 rounded  ${
-          isFav ? "bg-red-300 dark:bg-red-600" : "bg-gray-300 dark:bg-gray-600"
+        className={`p-2 mt-4 px-2 pt-1 border-red-900 rounded border-2  ${
+          isFav
+            ? "bg-red-300 dark:bg-red-600 hover:bg-red-200"
+            : "bg-gray-300 dark:bg-gray-600 hover:bg-green-100"
         }`}
         disabled={isLoading}
       >
@@ -88,4 +85,3 @@ export default function AddToFav({
     </div>
   );
 }
-*/

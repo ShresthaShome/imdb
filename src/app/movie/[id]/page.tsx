@@ -1,4 +1,5 @@
 import AddToFav from "@/components/AddToFav";
+import { CardType } from "@/types";
 import Link from "next/link";
 
 export default async function MoviePage({
@@ -10,7 +11,7 @@ export default async function MoviePage({
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
   );
-  const movie = await res.json();
+  const movie: CardType = await res.json();
 
   if (!res.ok) {
     return (
@@ -53,14 +54,14 @@ export default async function MoviePage({
             <span className="font-semibold mr-1">Rating:</span>
             {movie.vote_count}
           </p>
-          {/* <AddToFav
+          <AddToFav
             movieId={movieId}
             title={movie.title || movie.name}
             image={movie.backdrop_path || movie.poster_path}
             overview={movie.overview}
             releaseDate={movie.release_date || movie.first_air_date}
             voteCount={movie.vote_count}
-          /> */}
+          />
         </div>
       </div>
     </div>
